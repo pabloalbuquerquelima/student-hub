@@ -1,4 +1,4 @@
-package com.pabloalbuquerque.student_hub.questions.entities;
+package com.pabloalbuquerque.student_hub.modules.questions.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

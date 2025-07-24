@@ -1,4 +1,4 @@
-package com.pabloalbuquerque.seed;
+package com.pabloalbuquerque.student_hub.seed;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -18,15 +18,16 @@ public class CreateSeed {
     public static void main(String[] args) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres_student_hub");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
-        CreateSeed createseed = new CreateSeed(dataSource);
-        createseed.run(args);
+
+        CreateSeed createSeed = new CreateSeed(dataSource);
+        createSeed.run(args);
     }
 
-    public void run(String[] args) {
-        executeSqlFile("src/main/resources/seed.sql");
+    public void run(String... args) {
+        executeSqlFile("src/main/resources/create.sql");
     }
 
     public void executeSqlFile(String filepath) {
@@ -36,7 +37,8 @@ public class CreateSeed {
 
            System.out.println("Sucesso ao executar o arquivo: " + filepath);
         } catch (Exception e) {
-            System.err.println("Erro ao executar o arquivo" + filepath);
+            System.err.println("Erro ao executar o arquivo: " + filepath);
+            e.printStackTrace();
         }
     }
 }

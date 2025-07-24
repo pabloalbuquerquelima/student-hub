@@ -1,6 +1,5 @@
-package com.pabloalbuquerque.student_hub.questions.entities;
+package com.pabloalbuquerque.student_hub.modules.questions.entities;
 
-import com.pabloalbuquerque.student_hub.entities.CertificationStudentEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,10 +20,10 @@ public class QuestionEntity {
     @GeneratedValue( strategy = GenerationType.UUID )
     private UUID id;
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String technology;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String description;
 
     @CreationTimestamp

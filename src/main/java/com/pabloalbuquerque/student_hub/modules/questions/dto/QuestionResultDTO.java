@@ -1,26 +1,23 @@
 package com.pabloalbuquerque.student_hub.modules.questions.dto;
 
-import com.pabloalbuquerque.student_hub.modules.questions.entities.AlternativeEntity;
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 import java.util.UUID;
 
-public interface QuestionAlternativeResult {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class QuestionResultDTO {
 
-    @Id
     private UUID id;
-
     private String technology;
-
     private String description;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
-    @OneToMany
-    @JoinColumn( name = "question_id" )
-    private List<AlternativeEntity> alternatives;
+    private List<AlternativesResultDTO> alternatives;
 }
