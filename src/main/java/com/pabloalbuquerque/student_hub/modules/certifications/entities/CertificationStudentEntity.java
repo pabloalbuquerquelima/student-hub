@@ -1,4 +1,4 @@
-package com.pabloalbuquerque.student_hub.modules.students.entities;
+package com.pabloalbuquerque.student_hub.modules.certifications.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -7,14 +7,13 @@ import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pabloalbuquerque.student_hub.modules.students.entities.StudentEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +22,6 @@ public class CertificationStudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @JsonManagedReference
     private UUID id;
 
     @Column(length = 100)
@@ -37,11 +35,11 @@ public class CertificationStudentEntity {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    @JsonBackReference
+    @JsonIgnoreProperties("certificationsStudentEntity")
     private StudentEntity student;
 
     @OneToMany(mappedBy = "certificationStudentEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnoreProperties("certificationStudentEntity")
     private List<AnswersCertificationEntity> answersCertificationEntities;
 
     @CreationTimestamp

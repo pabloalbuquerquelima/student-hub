@@ -1,4 +1,4 @@
-package com.pabloalbuquerque.student_hub.modules.students.dto;
+package com.pabloalbuquerque.student_hub.modules.questions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

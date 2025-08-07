@@ -1,5 +1,6 @@
 package com.pabloalbuquerque.student_hub.modules.students.dto;
 
+import com.pabloalbuquerque.student_hub.modules.questions.dto.QuestionAnswerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

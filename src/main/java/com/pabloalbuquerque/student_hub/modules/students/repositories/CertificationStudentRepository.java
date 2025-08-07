@@ -1,6 +1,6 @@
 package com.pabloalbuquerque.student_hub.modules.students.repositories;
 
-import com.pabloalbuquerque.student_hub.modules.students.entities.CertificationStudentEntity;
+import com.pabloalbuquerque.student_hub.modules.certifications.entities.CertificationStudentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
